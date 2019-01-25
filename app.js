@@ -17,7 +17,7 @@ const flash        = require('connect-flash')
 const SlackStrategy = require('passport-slack').Strategy
 
 mongoose
-  .connect(process.env.MONGODB, {useNewUrlParser: true})
+  .connect("mongodb://hobglobin27:gopacha01@ds229771.mlab.com:29771/passport", {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
