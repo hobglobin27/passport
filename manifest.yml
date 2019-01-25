@@ -2,6 +2,6 @@
   applications:
     - instances: 1
       name: socialloginpassport24ene
-      memory: 128M
+      memory: 64M
       domain: mybluemix.net
       host: socialloginpassport24ene
