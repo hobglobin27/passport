@@ -15,6 +15,7 @@ const LocalStrategy = require('passport-local').Strategy
 const User         = require('./models/user')
 const flash        = require('connect-flash')
 const SlackStrategy = require('passport-slack').Strategy
+const MongoStore   = require("connect-mongo")(session);
 
 mongoose
   .connect(process.env.MONGODB, {useNewUrlParser: true})
@@ -38,7 +39,8 @@ app.use(cookieParser());
 app.use(session({
   secret: 'jafsjlafsjopafsjpofañnafslnkafsñklasf',
   resave: true,
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
 }))
 
 passport.serializeUser((user, callback)=>{
